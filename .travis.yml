@@ -15,8 +15,8 @@ script:
   - bash test/test.sh
   - bash test/clean.sh
 
-#deploy:
-#  provider: script
-#  script: echo $DOCKER_PASS | docker login -u selfhostingtools --password-stdin && docker push selfhostingtools/unbound-docker:latest
-#  on:
-#    branch: master
+deploy:
+  provider: script
+  script: echo $DOCKER_PASS | docker login -u selfhostingtools --password-stdin && docker push selfhostingtools/unbound-docker:latest
+  on:
+    branch: master
