@@ -4,4 +4,4 @@ set -e
 
 CONTAINER_IP=$(docker inspect --format '{{.NetworkSettings.IPAddress}}' unbound)
 
-dig google.fr @$CONTAINER_IP
+dig google.fr @"$CONTAINER_IP"

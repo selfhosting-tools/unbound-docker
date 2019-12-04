@@ -2,6 +2,6 @@
 
 set -e
 
-shellcheck bin/*.sh test/*.sh
+shellcheck run.sh test/*.sh
 
 hadolint Dockerfile
