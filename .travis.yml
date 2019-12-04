@@ -1,0 +1,22 @@
+language: shell
+dist: xenial
+services:
+  - docker
+
+install:
+  - mkdir -p $HOME/bin
+  - curl -sL -o $HOME/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-Linux-x86_64 && chmod 755 $HOME/bin/hadolint
+  - export PATH=$PATH:$HOME/bin
+  - apt-get install dnsutils
+
+script:
+  - bash test/linters.sh
+  - bash test/setup.sh
+  - bash test/test.sh
+  - bash test/clean.sh
+
+#deploy:
+#  provider: script
+#  script: echo $DOCKER_PASS | docker login -u selfhostingtools --password-stdin && docker push selfhostingtools/unbound-docker:latest
+#  on:
+#    branch: master
