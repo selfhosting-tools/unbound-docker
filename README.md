@@ -1,2 +1,55 @@
-# unbound-docker
-Unbound DNS resolver using Docker 
+# selfhosting-tools/unbound-docker
+
+[![Build Status](https://travis-ci.org/selfhosting-tools/unbound-docker.svg?branch=master)](https://travis-ci.org/selfhosting-tools/unbound-docker)
+[![Project Status: Active  The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Docker Hub](https://img.shields.io/docker/pulls/selfhostingtools/unbound-docker.svg)](https://hub.docker.com/r/selfhostingtools/unbound-docker)
+
+## What is this software
+
+[Unbound](https://www.nlnetlabs.nl/projects/unbound/about/) is a validating, recursive, caching DNS resolver released under the BSD licence. It is designed to be fast and lean and incorporates modern features based on open standards like DNS-over-TLS.
+
+### Features
+
+- Lightweight & secure image (based on Alpine & multi-stage build: 11MB, no root process)
+- Latest unbound version with hardening compilation options
+
+### Run with Docker-compose
+
+```yaml
+version: '3.7'
+
+services:
+  unbound:
+    container_name: unbound
+    restart: always
+    image: selfhostingtools/unbound-docker:latest
+    read_only: true
+    volumes:
+      - /mnt/unbound/conf:/etc/unbound
+    ports:
+      - 53:53
+      - 53:53/udp
+```
+
+#### Configuration example
+
+Put your dns zone file in `/mnt/unbound/conf/unbound.conf`
+
+:warning: This example allows requests from any IP! (i.e. open resolver)
+
+```yaml
+server:
+  use-syslog: no
+  do-daemonize: no
+  username: "unbound"
+  directory: "/etc/unbound"
+  trust-anchor-file: root.key
+  interface: 0.0.0.0
+  access-control: 0.0.0.0/0 allow
+
+remote-control:
+  control-enable: yes
+  control-interface: 127.0.0.1
+```
+
+`control-enable: yes` is needed for Docker healthcheck.
