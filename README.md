@@ -53,3 +53,19 @@ remote-control:
 ```
 
 `control-enable: yes` is needed for Docker healthcheck.
+
+#### Environment variables
+
+You may want to change the running user:
+
+| Variable | Description      | Type       | Default value |
+| -------- | -----------      | ----       | ------------- |
+| **UID**  | unbound user id  | *optional* | 991           |
+
+## Build the image
+
+Build-time variables:
+
+- **UNBOUND_VERSION** : version of Unbound
+- **GPG_FINGERPRINT** : fingerprint of signing key
+- **SHA256_HASH** : SHA256 hash of Unbound archive
