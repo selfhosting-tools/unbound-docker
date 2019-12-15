@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/selfhosting-tools/unbound-docker.svg?branch=master)](https://travis-ci.org/selfhosting-tools/unbound-docker)
 [![Project Status: Active  The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Docker Hub](https://img.shields.io/docker/pulls/selfhostingtools/unbound-docker.svg)](https://hub.docker.com/r/selfhostingtools/unbound-docker)
+[![Docker Hub](https://img.shields.io/docker/pulls/selfhostingtools/unbound.svg)](https://hub.docker.com/r/selfhostingtools/unbound)
 
 ## What is this software
 
@@ -22,7 +22,7 @@ services:
   unbound:
     container_name: unbound
     restart: always
-    image: selfhostingtools/unbound-docker:latest
+    image: selfhostingtools/unbound:latest
     read_only: true
     volumes:
       - /mnt/unbound/conf:/etc/unbound

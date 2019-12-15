@@ -17,6 +17,6 @@ script:
 
 deploy:
   provider: script
-  script: echo $DOCKER_PASS | docker login -u selfhostingtools --password-stdin && docker push selfhostingtools/unbound-docker:latest
+  script: echo $DOCKER_PASS | docker login -u selfhostingtools --password-stdin && docker push selfhostingtools/unbound:latest
   on:
     branch: master
