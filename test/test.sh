@@ -3,7 +3,7 @@
 set -e
 set -o pipefail
 
-CONTAINER_IP=$(docker inspect --format '{{.NetworkSettings.IPAddress}}' unbound)
+CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' unbound)
 
 dig google.fr @"$CONTAINER_IP" | grep NOERROR
 
