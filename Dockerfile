@@ -1,9 +1,9 @@
 FROM alpine:latest as builder
 LABEL Maintainer "Selfhosting-tools (https://github.com/selfhosting-tools)"
 
-ARG UNBOUND_VERSION=1.11.0
+ARG UNBOUND_VERSION=1.12.0
 ARG GPG_FINGERPRINT="EDFAA3F2CA4E6EB05681AF8E9F6F1C2D7E045F8D"
-ARG SHA256_HASH="9f2f0798f76eb8f30feaeda7e442ceed479bc54db0e3ac19c052d68685e51ef7"
+ARG SHA256_HASH="5b9253a97812f24419bf2e6b3ad28c69287261cf8c8fa79e3e9f6d3bf7ef5835"
 
 
 RUN apk add --no-cache \
@@ -14,7 +14,8 @@ RUN apk add --no-cache \
       libevent-dev \
       openssl-dev \
       expat-dev \
-      ca-certificates
+      ca-certificates \
+      nghttp2-dev
 
 SHELL [ "/bin/bash", "-o", "pipefail", "-c" ]
 
@@ -39,7 +40,7 @@ RUN echo "Extracting unbound-${UNBOUND_VERSION}.tar.gz..." && \
     tar -xzf "unbound-${UNBOUND_VERSION}.tar.gz"
 WORKDIR /tmp/unbound-${UNBOUND_VERSION}
 
-RUN ./configure --prefix="" \
+RUN ./configure --prefix="" --with-libnghttp2 \
     CFLAGS="-O2 -flto -fPIE -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -fstack-protector-strong \
             -Wformat -Werror=format-security" \
     LDFLAGS="-Wl,-z,now -Wl,-z,relro" && \
