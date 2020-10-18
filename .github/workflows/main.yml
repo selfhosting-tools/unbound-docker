@@ -13,10 +13,10 @@ jobs:
       run: |
         mkdir -p $HOME/bin
         curl -sL -o $HOME/bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.17.3/hadolint-Linux-x86_64 && chmod 755 $HOME/bin/hadolint
-        export PATH=$PATH:$HOME/bin
-        sudo apt-get update && sudo apt-get install -y dnsutils
     - name: Run linters
-      run: bash test/linters.sh
+      run: |
+        export PATH=$PATH:$HOME/bin
+        bash test/linters.sh
     - name: Setup tests
       run: bash test/setup.sh
     - name: Run tests
