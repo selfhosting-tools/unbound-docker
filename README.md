@@ -1,6 +1,6 @@
 # selfhosting-tools/unbound-docker
 
-[![Build Status](https://travis-ci.org/selfhosting-tools/unbound-docker.svg?branch=master)](https://travis-ci.org/selfhosting-tools/unbound-docker)
+![Github Actions](https://github.com/selfhosting-tools/unbound-docker/workflows/main/badge.svg?branch=master)
 [![Project Status: Active  The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Docker Hub](https://img.shields.io/docker/pulls/selfhostingtools/unbound.svg)](https://hub.docker.com/r/selfhostingtools/unbound)
 
