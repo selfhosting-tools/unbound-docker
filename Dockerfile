@@ -58,7 +58,8 @@ RUN adduser -u ${UID} -s /bin/nologin -h /etc/unbound --disabled-password unboun
 RUN apk add --no-cache \
    openssl \
    expat \
-   tini
+   tini \
+   nghttp2
 
 COPY --from=builder /builder /
 COPY run.sh /usr/local/bin
