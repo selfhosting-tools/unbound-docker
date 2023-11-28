@@ -2,7 +2,7 @@
 
 ![Github Actions](https://github.com/selfhosting-tools/unbound-docker/workflows/main/badge.svg?branch=master)
 [![Project Status: Active  The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Docker Hub](https://img.shields.io/docker/pulls/selfhostingtools/unbound.svg)](https://hub.docker.com/r/selfhostingtools/unbound)
+[![Docker Hub](https://img.shields.io/docker/pulls/suvl/unbound.svg)](https://hub.docker.com/r/suvl/unbound)
 
 ## What is this software
 
@@ -22,7 +22,7 @@ services:
   unbound:
     container_name: unbound
     restart: always
-    image: selfhostingtools/unbound:latest
+    image: suvl/unbound:latest
     read_only: true
     volumes:
       - /mnt/unbound/conf:/etc/unbound

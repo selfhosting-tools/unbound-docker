@@ -1,5 +1,5 @@
 FROM alpine:latest as builder
-LABEL Maintainer "Selfhosting-tools (https://github.com/selfhosting-tools)"
+LABEL Maintainer "suvl (https://github.com/suvl)"
 
 ARG UNBOUND_VERSION=1.19.0
 ARG GPG_FINGERPRINT="EDFAA3F2CA4E6EB05681AF8E9F6F1C2D7E045F8D"
@@ -48,7 +48,7 @@ RUN ./configure --prefix="" --with-libnghttp2 \
 
 
 FROM alpine:latest
-LABEL Maintainer "Selfhosting-tools (https://github.com/selfhosting-tools)"
+LABEL Maintainer "suvl (https://github.com/suvl)"
 
 ENV UID=991
 

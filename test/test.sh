@@ -5,7 +5,7 @@ set -o pipefail
 
 CONTAINER_IP=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' unbound)
 
-dig google.fr @"$CONTAINER_IP" | grep NOERROR
+dig google.pt @"$CONTAINER_IP" | grep NOERROR
 
 dig dnssec-tools.org @"$CONTAINER_IP" | grep NOERROR
 dig dnssec-tools.org @"$CONTAINER_IP" | grep ".*flags:.*ad.*"
