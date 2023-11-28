@@ -1,5 +1,5 @@
 FROM alpine:latest as builder
-LABEL Maintainer "suvl (https://github.com/suvl)"
+LABEL org.opencontainers.image.authors "suvl (https://github.com/suvl), selfhosting-tools (https://github.com/selfhosting-tools)"
 
 ARG UNBOUND_VERSION=1.19.0
 ARG GPG_FINGERPRINT="EDFAA3F2CA4E6EB05681AF8E9F6F1C2D7E045F8D"
@@ -48,17 +48,16 @@ RUN ./configure --prefix="" --with-libnghttp2 \
 
 
 FROM alpine:latest
-LABEL Maintainer "suvl (https://github.com/suvl)"
+LABEL org.opencontainers.image.authors "suvl (https://github.com/suvl), selfhosting-tools (https://github.com/selfhosting-tools)"
 
 ENV UID=991
 
-RUN adduser -u ${UID} -s /bin/nologin -h /etc/unbound --disabled-password unbound
-
-RUN apk add --no-cache \
-   openssl \
-   expat \
-   tini \
-   nghttp2
+RUN adduser -u ${UID} -s /bin/nologin -h /etc/unbound --disabled-password unbound && \
+   apk add --no-cache \
+      openssl \
+      expat \
+      tini \
+      nghttp2
 
 COPY --from=builder /builder /
 COPY run.sh /usr/local/bin
