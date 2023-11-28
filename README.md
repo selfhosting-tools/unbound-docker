@@ -22,7 +22,7 @@ services:
   unbound:
     container_name: unbound
     restart: always
-    image: suvl/unbound:latest
+    image: ghcr.io/suvl/unbound:latest
     read_only: true
     volumes:
       - /mnt/unbound/conf:/etc/unbound
