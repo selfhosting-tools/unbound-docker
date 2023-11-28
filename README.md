@@ -1,8 +1,7 @@
-# selfhosting-tools/unbound-docker
+# suvl/unbound-docker
 
-![Github Actions](https://github.com/selfhosting-tools/unbound-docker/workflows/main/badge.svg?branch=master)
+![Github Actions](https://github.com/suvl/unbound-docker/workflows/main/badge.svg?branch=master)
 [![Project Status: Active  The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Docker Hub](https://img.shields.io/docker/pulls/suvl/unbound.svg)](https://hub.docker.com/r/suvl/unbound)
 
 ## What is this software
 
