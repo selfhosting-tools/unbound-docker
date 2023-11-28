@@ -1,6 +1,6 @@
 # suvl/unbound-docker
 
-![Github Actions](https://github.com/suvl/unbound-docker/workflows/docker-publish.yml/badge.svg?branch=master)
+![Github Actions](https://github.com/suvl/unbound-docker/actions/workflows/docker-publish.yml/badge.svg?branch=master)
 [![Project Status: Active  The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 ## What is this software
